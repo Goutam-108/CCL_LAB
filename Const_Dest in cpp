@@ -1,0 +1,75 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class Demo
+{
+    private:
+        int *p;
+    public:
+    
+        //for Function chaining using this
+        
+        Demo &getInfo()
+        {
+            cout<<*p<<endl;
+            return *this;
+        }
+        Demo &setInfo(int p)
+        {
+            *this->p = p;
+            return *this;
+        }
+        
+        //for regular Function
+        
+        // void getInfo()
+        // {
+        //     cout<<*p<<endl;
+        // }
+        // void setInfo(int p)
+        // {
+        //     *this->p = p;
+        // }
+        
+        //constructors
+        
+        Demo()   
+        {
+            cout<<"Default constructor"<<endl;
+        }
+        Demo(int x)                                           //parametized constructor
+        {
+            cout<<"Parametized constructor\n";
+            p = new int(x);                                     //allocated new memory ('new' creates dynamic memory)
+        }
+        Demo(Demo &obj)                                           //copy constructor
+        {
+            // cout<<"Shallow Copy constructor\n";
+            // p = obj.p;                         //for Shallow copy
+            cout<<"Deep Copy constructor\n";
+            p = new int (*(obj.p));                    //for Deep copy
+        }
+        ~Demo()  //Destruction
+        {
+            cout<<"Destruction is called"<<endl;
+        }
+};
+
+int main()
+{
+    Demo d3;
+    Demo d1(110);
+    d1.getInfo();
+    Demo d2(d1);
+    d2.getInfo().setInfo(15);
+    d2.getInfo();
+    // d2.setInfo(111);
+    d1.getInfo();
+    d1.setInfo(10);
+    d1.~Demo();
+    d1.getInfo();
+    
+    
+    return 0;
+}
