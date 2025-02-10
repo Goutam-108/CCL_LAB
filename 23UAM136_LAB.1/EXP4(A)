@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std; 
+
+//Single Inhereitance
+
+class A
+{
+	public:
+		int a;
+		int b;
+		void get()
+		{
+			cout<<"Enter numbers "<<endl;
+			cin>>a>>b;
+		}
+};
+
+class B:public A
+{
+	public:
+		void sum()
+		{
+			cout<<"Addition "<<a+b;
+		}
+};
+
+int main()
+{
+	B obj;
+	obj.get();
+	obj.sum();
+}
