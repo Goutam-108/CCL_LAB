@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+//Multilevel Inherietance
+
+class A
+{
+	public:
+		int a;
+		void get1()
+		{
+			cout<<"Enter the 1st number ";
+			cin>>a;
+		}
+};
+
+class B:public A
+{
+	public:
+		int b;
+		void get2()
+		{
+			cout<<"Enter the 2nd number ";
+			cin>>b;
+		}
+};
+
+class C:public B
+{
+	public:
+		void sum()
+		{
+			cout<<"Addition is "<<a+b<<endl;
+		}
+};
+
+class D:public C
+{
+	public:
+		void subs()
+		{
+			cout<<"Subtraction is "<<a-b<<endl;
+		}
+};
+
+class E:public D
+{
+	public:
+		void mul()
+		{
+			cout<<"Multiplication is "<<a*b<<endl;
+		}
+};
+
+int main()
+{
+	E obj;
+	obj.get1();
+	obj.get2();
+	obj.sum();
+	obj.subs();
+	obj.mul();
+	return 0;
+}
